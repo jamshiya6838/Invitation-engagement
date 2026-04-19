@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f8f5f0">
+
+<title>Rishan & Shamseena | Engagement Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Poppins&family=Amiri&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+body{
+margin:0;
+background:#f8f5f0;
+font-family:'Poppins',sans-serif;
+color:#5a4a42;
+overflow-x:hidden;
+}
+
+/* LANDING */
+#landing{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(#fdfaf6,#f5efe6);
+position:relative;
+}
+
+.names{
+font-family:'Great Vibes';
+font-size:52px;
+}
+
+.arabic{
+font-family:'Amiri';
+font-size:22px;
+}
+
+.open-btn{
+position:absolute;
+bottom:40px;
+padding:12px 30px;
+border-radius:30px;
+background:#e8d9c5;
+border:none;
+box-shadow:0 0 20px rgba(212,175,55,0.6);
+animation:pulse 2s infinite;
+transition:0.3s;
+}
+
+.open-btn:hover{
+transform:scale(1.1);
+cursor:pointer;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1)}
+}
+
+/* MAIN */
+#main{display:none;padding:20px;text-align:center;}
+
+.section{
+margin:100px 0;
+opacity:0;
+transform:translateY(50px);
+}
+
+.divider{
+width:80px;
+height:2px;
+background:#d4af37;
+margin:20px auto;
+}
+
+/* CARD */
+.card{
+background:#fff;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+text-align:left;
+max-width:320px;
+margin:auto;
+}
+
+.card-item{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+/* COUNTDOWN */
+.countdown{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.time-box{
+text-align:center;
+min-width:70px;
+}
+
+.time-box span{
+display:block;
+font-size:28px;
+color:#c8a96a;
+}
+
+/* BUTTON */
+.btn{
+padding:12px 25px;
+border-radius:25px;
+background:#e8d9c5;
+text-decoration:none;
+color:#5a4a42;
+box-shadow:0 0 10px rgba(212,175,55,0.5);
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+/* CANVAS */
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+}
+
+/* FOOTER */
+.closing{
+margin-top:50px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="sparkle"></canvas>
+
+<!-- LANDING -->
+<div id="landing">
+<div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<h1 class="names">Rishan & Shamseena</h1>
+<p>Engagement Ceremony</p>
+<button class="open-btn" onclick="openInvite()">Tap to Open</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<audio id="bgMusic" loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
+</audio>
+
+<!-- WELCOME -->
+<div class="section">
+<div class="divider"></div>
+<p>We cordially invite you to celebrate the engagement of</p>
+<div class="arabic">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+<p style="font-size:12px;">And He placed between you love and mercy</p>
+</div>
+
+<!-- FAMILY -->
+<div class="section">
+<div class="divider"></div>
+<h2 class="names">Rishan</h2>
+<p>S/o Mr Muhammed Ashraf & Mrs Maimoona</p>
+
+<h2 class="names">Shamseena</h2>
+<p>D/o Mr Shajahan & Mrs Rabiya</p>
+</div>
+
+<!-- EVENT -->
+<div class="section">
+<div class="divider"></div>
+<div class="card">
+<div class="card-item">📅 <div><small>Date</small><br>26 April 2026</div></div>
+<div class="card-item">⏰ <div><small>Time</small><br>10:30 AM</div></div>
+<div class="card-item">📍 <div><small>Venue</small><br>Vavas Mall, Perinthalmanna</div></div>
+</div>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="section">
+<h2>Counting down to our special day</h2>
+<div class="countdown">
+<div class="time-box"><span id="d"></span>Days</div>
+<div class="time-box"><span id="h"></span>Hours</div>
+<div class="time-box"><span id="m"></span>Minutes</div>
+<div class="time-box"><span id="s"></span>Seconds</div>
+</div>
+</div>
+
+<!-- LOCATION -->
+<div class="section">
+<a class="btn" href="https://maps.google.com?q=Vavas Mall Perinthalmanna" target="_blank">View Location</a>
+</div>
+
+<!-- CLOSING -->
+<div class="section closing">
+<div class="divider"></div>
+<p>We look forward to your presence and blessings</p>
+<p><i>With warm regards,</i></p>
+<p>The families & Friends of Rishan & Shamseena</p>
+</div>
+
+</div>
+
+<script>
+
+/* OPEN */
+function openInvite(){
+document.getElementById("landing").style.display="none";
+document.getElementById("main").style.display="block";
+
+// play music after click
+let audio = document.getElementById("bgMusic");
+audio.play().catch(()=>{});
+
+if(typeof gsap !== "undefined"){
+gsap.to(".section",{opacity:1,y:0,stagger:0.25,duration:1});
+}else{
+document.querySelectorAll(".section").forEach(sec=>{
+sec.style.opacity=1;
+sec.style.transform="translateY(0)";
+});
+}
+}
+
+/* COUNTDOWN */
+var countDate=new Date("April 26, 2026 10:30:00").getTime();
+
+setInterval(function(){
+var now=new Date().getTime();
+var gap=countDate-now;
+
+if(gap<=0){
+document.getElementById("d").innerHTML=0;
+document.getElementById("h").innerHTML=0;
+document.getElementById("m").innerHTML=0;
+document.getElementById("s").innerHTML=0;
+return;
+}
+
+document.getElementById("d").innerHTML=Math.floor(gap/(1000*60*60*24));
+document.getElementById("h").innerHTML=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+document.getElementById("m").innerHTML=Math.floor((gap%(1000*60*60))/(1000*60));
+document.getElementById("s").innerHTML=Math.floor((gap%(1000*60))/1000);
+},1000);
+
+/* SPARKLES */
+const canvas=document.getElementById("sparkle");
+const ctx=canvas.getContext("2d");
+
+function resizeCanvas(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize",resizeCanvas);
+
+let particles=[];
+for(let i=0;i<70;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(212,175,55,0.6)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+p.y+=p.d;
+
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+});
+requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+
+</body>
+</html>
